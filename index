@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU AI Act für kleine Unternehmen - Workshop-Übersicht</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #2C2C2C;
+            background: linear-gradient(135deg, #FAF8F6 0%, #E6E0D6 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #FAF8F6;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #F5A623 0%, #B75514 100%);
+            color: #FAF8F6;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #E6E0D6;
+            border-bottom: 3px solid #B75514;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            border-right: 1px solid #B6ADA4;
+            color: #2C2C2C;
+        }
+        
+        .tab:last-child {
+            border-right: none;
+        }
+        
+        .tab:hover {
+            background: #B6ADA4;
+            color: #FAF8F6;
+        }
+        
+        .tab.active {
+            background: #FAF8F6;
+            color: #B75514;
+            border-bottom: 3px solid #B75514;
+            margin-bottom: -3px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #F5A623;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            padding: 0 30px;
+        }
+        
+        .timeline-item.left {
+            text-align: right;
+            padding-right: calc(50% + 50px);
+        }
+        
+        .timeline-item.right {
+            text-align: left;
+            padding-left: calc(50% + 50px);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #B75514;
+            border: 4px solid #FAF8F6;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px #F5A623;
+        }
+        
+        .timeline-content {
+            background: #E6E0D6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #B75514;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .article-ref {
+            background: #fff3cd;
+            border-left: 4px solid #F5A623;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .article-ref strong {
+            color: #B75514;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #FAF8F6 0%, #E6E0D6 100%);
+            border: 2px solid #F5A623;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h3 {
+            color: #B75514;
+            margin-bottom: 15px;
+        }
+        
+        .action-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .action-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #FAF8F6;
+            border-left: 4px solid #B75514;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        
+        .action-list li:hover {
+            transform: translateX(5px);
+        }
+        
+        .action-list li::before {
+            content: '✓';
+            color: #B75514;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .risk-card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .risk-forbidden {
+            background: #ffe6e6;
+            border: 2px solid #dc3545;
+        }
+        
+        .risk-high {
+            background: #fff3cd;
+            border: 2px solid #F5A623;
+        }
+        
+        .risk-limited {
+            background: #e7f3ff;
+            border: 2px solid #4CA3C2;
+        }
+        
+        .risk-minimal {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+        
+        .risk-card h4 {
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #B75514;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #F5A623;
+        }
+        
+        h3 {
+            color: #B75514;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .example-box {
+            background: #f0f8ff;
+            border-left: 4px solid #4CA3C2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .penalty-info {
+            background: #fff0f0;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .penalty-info h3 {
+            color: #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item.left,
+            .timeline-item.right {
+                text-align: left;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                border-right: none;
+                border-bottom: 1px solid #B6ADA4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EU AI Act für kleine Unternehmen</h1>
+            <p>Verordnung (EU) 2024/1689 – Praktischer Leitfaden</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Workshop-Übersicht mit direkten Artikelverweisen</p>
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('uebersicht')">🎯 Quick Start</div>
+            <div class="tab" onclick="showTab('zeitplan')">📅 Zeitplan</div>
+            <div class="tab" onclick="showTab('pflichten')">📋 Pflichten JETZT</div>
+            <div class="tab" onclick="showTab('kennzeichnung')">🏷️ Kennzeichnung</div>
+            <div class="tab" onclick="showTab('risiken')">⚠️ Risikoklassen</div>
+            <div class="tab" onclick="showTab('dsgvo')">🔒 DSGVO & KI</div>
+            <div class="tab" onclick="showTab('strafen')">⚖️ Strafen</div>
+        </div>
+        
+        <div class="content">
+            <!-- Tab 0: Übersicht -->
+            <div id="uebersicht" class="tab-content active">
+                <h2>Die 3 wichtigsten Schritte für kleine Unternehmen</h2>
+                
+                <div class="highlight-box" style="background: linear-gradient(135deg, #F5A623 0%, #B75514 100%); color: #FAF8F6; border: none;">
+                    <h3 style="color: #FAF8F6;">✅ Sofort umsetzbar – gilt seit 2. Februar 2025</h3>
+                </div>
+                
+                <div class="action-list" style="margin-top: 30px;">
+                    <li style="background: #fff3cd; border-left: 6px solid #B75514; padding: 25px;">
+                        <h3 style="margin-bottom: 15px; color: #B75514;">1. Mitarbeiter schulen & dokumentieren</h3>
+                        <p><strong>Rechtsgrundlage:</strong> Artikel 4 der Verordnung (EU) 2024/1689</p>
+                        <ul style="margin-top: 15px; line-height: 2;">
+                            <li><strong>Was:</strong> Alle Mitarbeiter, die mit KI arbeiten, müssen geschult werden</li>
+                            <li><strong>Inhalt:</strong> Wie funktioniert KI? Welche Risiken gibt es? Wie nutzt man sie verantwortungsvoll?</li>
+                            <li><strong>Dokumentation:</strong> Wer wurde wann geschult? (Keine Zertifizierung nötig, aber Nachweis empfohlen)</li>
+                            <li><strong>Beispiele:</strong> ChatGPT-Nutzung, KI-Chatbot-Betreuung, KI-Bildgeneratoren, KI-Buchhaltung</li>
+                        </ul>
+                    </li>
+                    
+                    <li style="background: #e7f3ff; border-left: 6px solid #4CA3C2; padding: 25px;">
+                        <h3 style="margin-bottom: 15px; color: #4CA3C2;">2. Inhalte kennzeichnen (ab August 2026)</h3>
+                        <p><strong>Rechtsgrundlage:</strong> Artikel 50 der Verordnung (EU) 2024/1689</p>
+                        <ul style="margin-top: 15px; line-height: 2;">
+                            <li><strong>Was:</strong> KI-generierte Bilder, Videos, Audios und Texte müssen gekennzeichnet werden</li>
+                            <li><strong>Ausnahme:</strong> Wenn du den Inhalt selbst überarbeitest und die Verantwortung übernimmst, KEINE Kennzeichnung nötig</li>
+                            <li><strong>Wie:</strong> "Dieses Bild wurde mit KI erstellt" + Wasserzeichen im Bild</li>
+                            <li><strong>Wichtig:</strong> Social Media verlangt das SCHON JETZT!</li>
+                        </ul>
+                    </li>
+                    
+                    <li style="background: #d4edda; border-left: 6px solid #28a745; padding: 25px;">
+                        <h3 style="margin-bottom: 15px; color: #28a745;">3. Risikoklassen kennen (für Awareness)</h3>
+                        <p><strong>Rechtsgrundlage:</strong> Artikel 5, 6 und 50 der Verordnung (EU) 2024/1689</p>
+                        <ul style="margin-top: 15px; line-height: 2;">
+                            <li><strong>Minimales Risiko:</strong> ChatGPT, Claude, Copilot → Nur Schulungspflicht ✅</li>
+                            <li><strong>Begrenztes Risiko:</strong> KI-generierte Inhalte → Kennzeichnung ab 2026 📝</li>
+                            <li><strong>Hohes Risiko:</strong> KI für Personal oder Kreditentscheidungen → Strenge Auflagen ⚠️</li>
+                            <li><strong>Verboten:</strong> Social Scoring, Emotionserkennung am Arbeitsplatz 🚫</li>
+                        </ul>
+                    </li>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3>💡 Wichtigste Botschaft für dein Unternehmen:</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-top: 10px;">
+                        Die meisten kleinen Unternehmen nutzen KI mit <strong>minimalem Risiko</strong> (ChatGPT & Co.). 
+                        Das Wichtigste ist: <strong>Mitarbeiter schulen, dokumentieren</strong> und bei öffentlichen Inhalten ab 2026 
+                        <strong>kennzeichnen</strong>. Das war's im Wesentlichen! 🎯
+                    </p>
+                </div>
+                
+                <div class="example-box" style="margin-top: 30px;">
+                    <h4>📌 Checkliste für morgen:</h4>
+                    <ul style="line-height: 2; margin-top: 10px;">
+                        <li>☐ Liste erstellen: Welche KI-Tools nutzen wir?</li>
+                        <li>☐ Schulungstermin für Team planen</li>
+                        <li>☐ Dokumentationsvorlage erstellen (Wer, Wann, Was gelernt)</li>
+                        <li>☐ Bei Social Media: KI-Bilder kennzeichnen (schon jetzt!)</li>
+                        <li>☐ DSGVO prüfen: Kundendaten in KI-Tools? (siehe Tab "DSGVO & KI")</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tab 1: Zeitplan -->
+            <div id="zeitplan" class="tab-content">
+                <h2>Zeitplan der Umsetzung</h2>
+                <p style="margin-bottom: 30px;"><strong>Grundlage:</strong> Artikel 113 der Verordnung (EU) 2024/1689</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">1. August 2024</div>
+                            <h3>Inkrafttreten</h3>
+                            <p>Die Verordnung (EU) 2024/1689 tritt in Kraft</p>
+                            <div class="article-ref">
+                                <strong>Artikel 113 Abs. 1</strong>
+                                "Diese Verordnung tritt am zwanzigsten Tag nach ihrer Veröffentlichung im Amtsblatt der Europäischen Union in Kraft."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2. Februar 2025</div>
+                            <h3>Verbote + KI-Kompetenz</h3>
+                            <p><strong>Ab jetzt gilt für ALLE Unternehmen:</strong></p>
+                            <ul style="margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Artikel 4:</strong> KI-Kompetenzvermittlung für Mitarbeiter</li>
+                                <li><strong>Artikel 5:</strong> Verbot bestimmter KI-Praktiken</li>
+                            </ul>
+                            <div class="article-ref">
+                                <strong>Artikel 113 Abs. 2</strong>
+                                "Artikel 5 gilt ab dem 2. Februar 2025."<br>
+                                <strong>Artikel 4</strong> gilt ebenfalls ab diesem Datum.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2. August 2025</div>
+                            <h3>General Purpose AI</h3>
+                            <p>Regeln für KI-Modelle mit allgemeinem Verwendungszweck (wie ChatGPT, Claude)</p>
+                            <div class="article-ref">
+                                <strong>Artikel 113 Abs. 3</strong>
+                                "Artikel 53 Absatz 1 gilt ab dem 2. August 2025."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2. August 2026</div>
+                            <h3>Kennzeichnungspflicht + Hauptregeln</h3>
+                            <p><strong>Ab jetzt gilt:</strong></p>
+                            <ul style="margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Artikel 50:</strong> Kennzeichnung KI-generierter Inhalte</li>
+                                <li>Alle anderen Regelungen (außer Hochrisiko-Alt-Systeme)</li>
+                            </ul>
+                            <div class="article-ref">
+                                <strong>Artikel 113 Abs. 1</strong>
+                                "Sie gilt ab dem 2. August 2026."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2. August 2027</div>
+                            <h3>Hochrisiko-Altsysteme</h3>
+                            <p>Übergangsfrist für bestehende Hochrisiko-KI-Systeme</p>
+                            <div class="article-ref">
+                                <strong>Artikel 113 Abs. 5</strong>
+                                "Artikel 6 Absatz 1 gilt ab dem 2. August 2027."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab 2: Pflichten JETZT -->
+            <div id="pflichten" class="tab-content">
+                <h2>Was gilt JETZT (seit 2. Februar 2025)?</h2>
+                
+                <div class="highlight-box">
+                    <h3>✅ Gilt für ALLE Unternehmen – auch Einzelpersonen!</h3>
+                    <p><strong>Unternehmensgröße spielt KEINE Rolle.</strong> Sobald KI beruflich genutzt wird, gelten diese Regeln.</p>
+                </div>
+                
+                <h3>1. KI-Kompetenz (Artikel 4)</h3>
+                <div class="article-ref">
+                    <strong>Artikel 4 – KI-Kompetenz</strong><br>
+                    "Anbieter und Betreiber von KI-Systemen ergreifen Maßnahmen, um sicherzustellen, dass die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befassten Personen über ein ausreichendes Maß an KI-Kompetenz verfügen. Dabei werden deren technisches Wissen, Erfahrung, allgemeine und berufliche Bildung sowie Ausbildung und der Kontext, in dem die KI-Systeme zum Einsatz kommen, berücksichtigt."
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Was bedeutet das konkret?</h3>
+                    <ul class="action-list">
+                        <li><strong>Schulungen durchführen:</strong> Mitarbeiter müssen verstehen, wie KI funktioniert, welche Risiken bestehen und wie sie verantwortungsvoll damit umgehen</li>
+                        <li><strong>Dokumentation:</strong> Zeitpunkt und Teilnehmer der Schulungen dokumentieren (keine Zertifizierung nötig, aber Nachweis empfohlen)</li>
+                        <li><strong>Alle Mitarbeiter einbeziehen:</strong> Jeder, der mit KI arbeitet – von ChatGPT-Nutzung bis zum KI-gestützten Kundenservice</li>
+                        <li><strong>Kontextbezogen:</strong> Schulung anpassen an technisches Niveau und Einsatzbereich</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <h4>💡 Praktische Beispiele für kleine Unternehmen:</h4>
+                    <ul style="line-height: 1.8; margin-top: 10px;">
+                        <li><strong>ChatGPT nutzen:</strong> Schulung durchführen, wie es verantwortungsvoll genutzt wird</li>
+                        <li><strong>KI-Chatbot auf Website:</strong> Schulung für die Mitarbeiter, die ihn betreuen</li>
+                        <li><strong>KI-Bildgenerator für Marketing:</strong> Team schulen in rechtssicherer Nutzung</li>
+                        <li><strong>KI-unterstützte Buchhaltung:</strong> Verständnis der KI-Funktionen vermitteln</li>
+                    </ul>
+                </div>
+                
+                <h3>2. Verbotene Praktiken (Artikel 5)</h3>
+                <div class="article-ref">
+                    <strong>Artikel 5 – Verbotene Praktiken im KI-Bereich</strong><br>
+                    "Das Inverkehrbringen, die Inbetriebnahme oder die Verwendung folgender KI-Systeme ist untersagt:"
+                </div>
+                
+                <div class="warning-box">
+                    <h4>🚫 Ab sofort verboten:</h4>
+                    <ul style="line-height: 1.8; margin-top: 10px;">
+                        <li><strong>Art. 5 Abs. 1 lit. a:</strong> Unterschwellige Manipulation (Subliminale Techniken)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. b:</strong> Ausnutzung von Schutzbedürftigkeit (Alter, Behinderung)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. c:</strong> Social Scoring (Bewertung sozialen Verhaltens)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. d:</strong> Risikobewertung von Personen (Vorhersage zukünftiger Straftaten)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. e:</strong> Gesichtserkennungs-Datenbanken (ungezielte Sammlung)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. f:</strong> Emotionserkennung am Arbeitsplatz/in Schulen</li>
+                        <li><strong>Art. 5 Abs. 1 lit. g:</strong> Biometrische Kategorisierung (sensible Merkmale)</li>
+                        <li><strong>Art. 5 Abs. 1 lit. h:</strong> Biometrische Echtzeit-Fernidentifizierung (mit Ausnahmen für Strafverfolgung)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tab 3: Kennzeichnung -->
+            <div id="kennzeichnung" class="tab-content">
+                <h2>Kennzeichnungspflicht (ab 2. August 2026)</h2>
+                
+                <div class="article-ref">
+                    <strong>Artikel 50 – Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme</strong><br>
+                    Dieser Artikel regelt die Kennzeichnungspflicht für KI-generierte Inhalte.
+                </div>
+                
+                <h3>Was MUSS gekennzeichnet werden?</h3>
+                
+                <div class="highlight-box">
+                    <h4>1. Deepfakes (Artikel 50 Abs. 4)</h4>
+                    <div class="article-ref" style="margin-top: 10px;">
+                        <strong>Artikel 50 Absatz 4</strong><br>
+                        "Betreiber eines KI-Systems, das Bild-, Ton- oder Videoinhalte erzeugt oder manipuliert, die ein Deepfake sind, müssen offenlegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden."
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Ausnahmen:</strong> Offensichtlich künstlerische, kreative, satirische oder fiktionale Werke</p>
+                    <div class="example-box" style="margin-top: 10px;">
+                        <strong>Beispiele:</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>KI-generierte Produktfotos: KENNZEICHNEN</li>
+                            <li>Mit Midjourney erstellte Werbebilder: KENNZEICHNEN</li>
+                            <li>Synthetisch erzeugte Audiodateien: KENNZEICHNEN</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>2. Texte zu öffentlichen Themen (Artikel 50 Abs. 3)</h4>
+                    <div class="article-ref" style="margin-top: 10px;">
+                        <strong>Artikel 50 Absatz 3</strong><br>
+                        "Betreiber eines KI-Systems, das Text erzeugt oder manipuliert, der zu dem Zweck veröffentlicht wird, die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, müssen offenlegen, dass der Text künstlich erzeugt oder manipuliert wurde."
+                    </div>
+                    <div class="example-box" style="margin-top: 10px;">
+                        <strong>Beispiele:</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>Pressemitteilungen mit KI erstellt: KENNZEICHNEN</li>
+                            <li>Blog-Posts zu Branchenthemen: KENNZEICHNEN</li>
+                            <li>Newsletter zu gesellschaftlichen Themen: KENNZEICHNEN</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>3. Interaktion mit KI-Systemen (Artikel 50 Abs. 1)</h4>
+                    <div class="article-ref" style="margin-top: 10px;">
+                        <strong>Artikel 50 Absatz 1</strong><br>
+                        "Anbieter stellen sicher, dass die zur Interaktion mit natürlichen Personen ausgelegten KI-Systeme so konzipiert und entwickelt sind, dass natürliche Personen darüber informiert werden, dass sie es mit einem KI-System zu tun haben."
+                    </div>
+                    <div class="example-box" style="margin-top: 10px;">
+                        <strong>Beispiel:</strong> Chatbots müssen Nutzer informieren, dass sie mit KI kommunizieren
+                    </div>
+                </div>
+                
+                <h3>❗ WICHTIGE AUSNAHME: Redaktionelle Kontrolle</h3>
+                <div class="highlight-box">
+                    <p><strong>Wenn Inhalte redaktionell überarbeitet wurden</strong> – also eine Person die inhaltliche Verantwortung übernommen und den Text geprüft/angepasst hat – entfällt die Kennzeichnungspflicht.</p>
+                    <div class="example-box" style="margin-top: 10px;">
+                        <strong>Praxis-Tipps:</strong>
+                        <ul style="margin-top: 5px;">
+                            <li>✅ ChatGPT als Entwurf + eigene Überarbeitung = KEINE Kennzeichnung nötig</li>
+                            <li>❌ KI-Output 1:1 veröffentlichen = Kennzeichnung PFLICHT</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Wie kennzeichnen?</h3>
+                <div class="article-ref">
+                    <strong>Artikel 50 Absatz 4</strong><br>
+                    "Die Offenlegung muss in klarer und eindeutiger Weise erfolgen und maschinenlesbare Informationen enthalten."
+                </div>
+                
+                <div class="example-box">
+                    <h4>💡 Formulierungsbeispiele:</h4>
+                    <ul style="line-height: 1.8; margin-top: 10px;">
+                        <li>"Dieses Bild wurde mit KI erstellt (Midjourney)"</li>
+                        <li>"Die Bilder dieses Beitrags wurden mithilfe künstlicher Intelligenz erstellt"</li>
+                        <li>"Animiertes Video generiert mit [KI-Anbieter]"</li>
+                        <li>"Dieser Text wurde mit KI-Unterstützung erstellt"</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Best Practice:</strong> Wasserzeichen im Bild + Texthinweis unter dem Bild</p>
+                </div>
+                
+                <h3>Was gilt SCHON JETZT?</h3>
+                <div class="warning-box">
+                    <h4>Social Media Plattformen haben eigene Regeln:</h4>
+                    <ul style="line-height: 1.8; margin-top: 10px;">
+                        <li><strong>Instagram, Facebook, TikTok, YouTube:</strong> Kennzeichnung bereits JETZT Pflicht</li>
+                        <li><strong>Bei Verstößen:</strong> Plattform-Sanktionen möglich</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>Wettbewerbsrecht:</h4>
+                    <p>KI-generierte Produktbilder können schon JETZT als Irreführung gelten → Empfehlung: Auch vor August 2026 kennzeichnen!</p>
+                </div>
+            </div>
+            
+            <!-- Tab 4: Risikoklassen -->
+            <div id="risiken" class="tab-content">
+                <h2>Die 4 Risikoklassen (Artikel 5, 6 und 50)</h2>
+                
+                <p style="margin-bottom: 30px;"><strong>Der AI Act folgt einem risikobasierten Ansatz:</strong> Je höher das Risiko, desto strenger die Anforderungen.</p>
+                
+                <div class="risk-grid">
+                    <div class="risk-card risk-forbidden">
+                        <h4>🚫 Unannehmbares Risiko</h4>
+                        <p><strong>Artikel 5 – VERBOTEN</strong></p>
+                        <p style="margin-top: 10px;">Social Scoring, unterschwellige Manipulation, Gesichtserkennung aus Internet-Datenbanken, Emotionserkennung am Arbeitsplatz</p>
+                        <p style="margin-top: 10px; font-weight: bold;">➜ Sofort abschalten!</p>
+                    </div>
+                    
+                    <div class="risk-card risk-high">
+                        <h4>⚠️ Hohes Risiko</h4>
+                        <p><strong>Artikel 6 + Anhang III</strong></p>
+                        <p style="margin-top: 10px;">Betrifft: Personalwesen (Bewerbungsauswahl, Leistungsbewertung), Kreditvergabe, kritische Infrastruktur, medizinische Geräte</p>
+                        <p style="margin-top: 10px; font-weight: bold;">➜ Strenge Dokumentations- und Überwachungspflichten</p>
+                        <p style="margin-top: 5px; font-size: 0.9em;">Ab 2. August 2026 (neue Systeme)</p>
+                    </div>
+                    
+                    <div class="risk-card risk-limited">
+                        <h4>ℹ️ Begrenztes Risiko</h4>
+                        <p><strong>Artikel 50 – Transparenzpflicht</strong></p>
+                        <p style="margin-top: 10px;">Chatbots, KI-generierte Inhalte (Bilder, Videos, Texte)</p>
+                        <p style="margin-top: 10px; font-weight: bold;">➜ Kennzeichnungspflicht</p>
+                        <p style="margin-top: 5px; font-size: 0.9em;">Ab 2. August 2026</p>
+                    </div>
+                    
+                    <div class="risk-card risk-minimal">
+                        <h4>✅ Minimales Risiko</h4>
+                        <p><strong>Keine speziellen Auflagen</strong></p>
+                        <p style="margin-top: 10px;">Die meisten ChatGPT-Anwendungen, KI-gestützte Spamfilter, KI-Videospiele</p>
+                        <p style="margin-top: 10px; font-weight: bold;">➜ Nur allgemeine Schulungspflicht (Artikel 4)</p>
+                        <p style="margin-top: 5px; font-size: 0.9em;">Seit 2. Februar 2025</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Für die meisten kleinen Unternehmen relevant:</h3>
+                    <ul class="action-list">
+                        <li><strong>Minimales Risiko:</strong> Standard-KI-Tools wie ChatGPT, Claude, Copilot → Nur Schulungspflicht</li>
+                        <li><strong>Begrenztes Risiko:</strong> Wenn ihr KI-generierte Bilder/Videos/Texte veröffentlicht → Kennzeichnung ab August 2026</li>
+                        <li><strong>Hohes Risiko:</strong> Nur wenn KI für kritische Entscheidungen (Personal, Kredit) genutzt wird → Komplexere Anforderungen</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tab 6: DSGVO & KI -->
+            <div id="dsgvo" class="tab-content">
+                <h2>DSGVO & KI: Kundendaten schützen</h2>
+                
+                <div class="warning-box">
+                    <h3>⚠️ Wichtig: EU AI Act ≠ DSGVO</h3>
+                    <p>Der AI Act regelt KI-Systeme. Die <strong>DSGVO (Datenschutz-Grundverordnung)</strong> gilt zusätzlich und schützt personenbezogene Daten. Beide Gesetze müssen eingehalten werden!</p>
+                </div>
+                
+                <h3>Die Grundfrage: Wohin gehen die Daten?</h3>
+                
+                <div class="highlight-box">
+                    <h4>🔴 Hochrisiko: Kundendaten in ChatGPT/Claude kopieren</h4>
+                    <div class="example-box" style="margin-top: 15px; background: #fff0f0; border-left-color: #dc3545;">
+                        <p><strong>Szenario:</strong> Du kopierst eine Kunden-E-Mail 1:1 in ChatGPT, um eine Antwort zu formulieren. Die E-Mail enthält:</p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li>Name des Kunden</li>
+                            <li>E-Mail-Adresse</li>
+                            <li>Evtl. Auftragsnummer, Adresse, Telefonnummer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-ref" style="background: #fff0f0; border-left-color: #dc3545; margin-top: 15px;">
+                        <strong>DSGVO-Problem:</strong><br>
+                        • <strong>Artikel 6 DSGVO:</strong> Verarbeitung personenbezogener Daten braucht eine Rechtsgrundlage<br>
+                        • <strong>Artikel 28 DSGVO:</strong> Auftragsverarbeiter brauchen einen Auftragsverarbeitungsvertrag (AVV)<br>
+                        • <strong>Artikel 44-50 DSGVO:</strong> Datenübermittlung in Drittländer (USA!) braucht besondere Garantien
+                    </div>
+                    
+                    <div class="warning-box" style="margin-top: 15px;">
+                        <h4>❌ Warum ist das problematisch?</h4>
+                        <ul style="line-height: 1.8; margin-top: 10px;">
+                            <li><strong>Keine AVV:</strong> OpenAI (ChatGPT) bzw. Anthropic (Claude) haben keinen direkten Auftragsverarbeitungsvertrag mit dir als Einzelnutzer</li>
+                            <li><strong>Training mit Daten:</strong> Je nach Version können deine Eingaben fürs Training genutzt werden</li>
+                            <li><strong>Drittland-Transfer:</strong> Die Daten gehen in die USA (Server von OpenAI/Anthropic)</li>
+                            <li><strong>Keine Rechtsgrundlage:</strong> Der Kunde hat nicht zugestimmt, dass seine Daten an ChatGPT weitergegeben werden</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="penalty-info" style="margin-top: 15px;">
+                        <h4>💰 DSGVO-Strafen bei Verstößen:</h4>
+                        <p><strong>Artikel 83 DSGVO:</strong> Bis zu 20 Mio. EUR oder 4% des weltweiten Jahresumsatzes</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4>🟢 Sicherer: Gmail / Microsoft 365 mit Business-Account</h4>
+                    <div class="example-box" style="margin-top: 15px; background: #f0f8ff; border-left-color: #4CA3C2;">
+                        <p><strong>Warum ist das anders?</strong></p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li><strong>AVV vorhanden:</strong> Google Workspace / Microsoft 365 bieten standardmäßig einen Auftragsverarbeitungsvertrag an</li>
+                            <li><strong>EU-Server möglich:</strong> Du kannst einstellen, dass Daten in der EU bleiben</li>
+                            <li><strong>Business-Konditionen:</strong> Klare vertragliche Regelungen zum Datenschutz</li>
+                            <li><strong>Kein Training:</strong> Deine E-Mails werden NICHT für KI-Training verwendet (bei Business-Accounts)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 40px;">🔓 Es gibt aber Lösungen für ChatGPT & Claude!</h3>
+                
+                <div class="highlight-box">
+                    <h4>✅ ChatGPT: Business-Versionen mit AVV</h4>
+                    <div class="example-box" style="margin-top: 15px; background: #FAF8F6; border-left-color: #28a745;">
+                        <p><strong>Diese Versionen sind DSGVO-konform nutzbar:</strong></p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li><strong>ChatGPT Team</strong> (ab ca. 25€/Nutzer/Monat)</li>
+                            <li><strong>ChatGPT Enterprise</strong> (individuelle Preise)</li>
+                            <li><strong>OpenAI API</strong> (Pay-per-Use)</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Was ist anders?</strong></p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li>✅ <strong>AVV verfügbar:</strong> Muss aktiv abgeschlossen werden unter <a href="https://openai.com/policies/data-processing-addendum" target="_blank">openai.com/policies/data-processing-addendum</a></li>
+                            <li>✅ <strong>Kein Training:</strong> Deine Eingaben werden NICHT fürs Modelltraining verwendet</li>
+                            <li>✅ <strong>Standard-Vertragsklauseln (SCC):</strong> Für Datenübermittlung in die USA</li>
+                            <li>⚠️ <strong>Daten gehen trotzdem in die USA</strong> (Server von OpenAI Ireland → OpenAI USA als Unterauftragsverarbeiter)</li>
+                        </ul>
+                        <div class="warning-box" style="margin-top: 15px;">
+                            <strong>Wichtig:</strong> Du musst den AVV AKTIV abschließen, er ist nicht automatisch dabei!<br>
+                            Anleitung: In deinem OpenAI-Account → Data Processing Addendum ausfüllen und elektronisch signieren
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <h4>✅ Claude: Business-Versionen mit AVV</h4>
+                    <div class="example-box" style="margin-top: 15px; background: #FAF8F6; border-left-color: #28a745;">
+                        <p><strong>Diese Versionen sind DSGVO-konform nutzbar:</strong></p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li><strong>Claude for Work / Claude Team</strong></li>
+                            <li><strong>Anthropic API</strong> (Pay-per-Use)</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Was ist anders?</strong></p>
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li>✅ <strong>AVV automatisch:</strong> Bei Akzeptanz der Commercial Terms ist der AVV automatisch dabei</li>
+                            <li>✅ <strong>Kein Training:</strong> Anthropic nutzt kommerzielle Daten NICHT fürs Training</li>
+                            <li>✅ <strong>Standard-Vertragsklauseln (SCC):</strong> Für Datenübermittlung in die USA</li>
+                            <li>⚠️ <strong>Daten gehen trotzdem in die USA</strong> (Anthropic hat Sitz in San Francisco)</li>
+                        </ul>
+                        <div class="example-box" style="margin-top: 15px; background: #f0f8ff;">
+                            <strong>Vorteil:</strong> AVV ist automatisch in den Commercial Terms enthalten, du musst ihn nicht separat abschließen!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 20px; background: linear-gradient(135deg, #e7f3ff 0%, #cfe7ff 100%);">
+                    <h4>🌍 Die beste Lösung: EU-Hosting!</h4>
+                    <div class="example-box" style="margin-top: 15px; background: #FAF8F6;">
+                        <p><strong>Nutze dieselben Modelle (ChatGPT, Claude, Gemini) über EU-Partner:</strong></p>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: #E6E0D6; border-radius: 5px;">
+                            <h5 style="color: #4CA3C2; margin-bottom: 10px;">1. Azure OpenAI Service (für ChatGPT-Modelle)</h5>
+                            <ul style="line-height: 1.8;">
+                                <li>✅ Server in EU (z.B. Schweden, Niederlande)</li>
+                                <li>✅ Microsoft als EU-Partner mit AVV</li>
+                                <li>✅ Gleiche Modelle (GPT-4o, GPT-4.5) wie bei OpenAI direkt</li>
+                                <li>✅ Gleiche Preise wie bei OpenAI</li>
+                                <li>✅ Daten bleiben in der EU</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 15px; background: #E6E0D6; border-radius: 5px;">
+                            <h5 style="color: #4CA3C2; margin-bottom: 10px;">2. AWS Bedrock (für Claude-Modelle)</h5>
+                            <ul style="line-height: 1.8;">
+                                <li>✅ Server in Frankfurt (eu-central-1)</li>
+                                <li>✅ Amazon AWS als EU-Partner mit AVV</li>
+                                <li>✅ Gleiche Modelle (Claude Sonnet 4.5, Claude Opus) wie bei Anthropic direkt</li>
+                                <li>✅ Gleiche Preise wie bei Anthropic</li>
+                                <li>✅ Daten bleiben in der EU</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 15px; background: #E6E0D6; border-radius: 5px;">
+                            <h5 style="color: #4CA3C2; margin-bottom: 10px;">3. Google Cloud Vertex AI (für Gemini-Modelle)</h5>
+                            <ul style="line-height: 1.8;">
+                                <li>✅ Server in Deutschland, Belgien, Niederlande</li>
+                                <li>✅ Google Cloud als EU-Partner mit AVV</li>
+                                <li>✅ Gleiche Modelle (Gemini 2.5 Pro) wie bei Google direkt</li>
+                                <li>✅ Daten bleiben in der EU</li>
+                            </ul>
+                        </div>
+                        
+                        <p style="margin-top: 20px; font-weight: bold; color: #4CA3C2;">
+                            💡 Fazit: Gleiche KI-Power, gleiche Kosten - aber DSGVO-sicher!
+                        </p>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 40px;">📝 Aber was ist mit "nur Name und E-Mail"?</h3>
+                
+                <div class="article-ref" style="background: #fff0f0; border-left-color: #dc3545;">
+                    <strong>Wichtig zu verstehen:</strong><br>
+                    <strong>Artikel 4 Nr. 1 DSGVO - Definition "personenbezogene Daten":</strong><br>
+                    "Alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen"
+                    <br><br>
+                    <strong>Das bedeutet:</strong>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>✅ Name + E-Mail = personenbezogene Daten</li>
+                        <li>✅ Nur E-Mail = personenbezogene Daten (wenn Person identifizierbar)</li>
+                        <li>✅ Nur Name + Kontext = personenbezogene Daten</li>
+                        <li>❌ Keine "besonderen Kategorien" nach Art. 9 DSGVO (wie Gesundheitsdaten, religiöse Überzeugung)</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <h4>🎯 Konkrete Antwort: Unter diesen Voraussetzungen JA!</h4>
+                    <p style="margin-top: 15px;"><strong>Du darfst Kundendaten (Name + E-Mail) in ChatGPT/Claude eingeben, wenn:</strong></p>
+                    <ol style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Du eine Business-Version nutzt:</strong> ChatGPT Team/Enterprise/API oder Claude for Work/API</li>
+                        <li><strong>Du einen AVV abgeschlossen hast:</strong> Wie oben beschrieben</li>
+                        <li><strong>Du eine Rechtsgrundlage hast (Art. 6 DSGVO):</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>Einwilligung des Kunden (Art. 6 Abs. 1 lit. a)</li>
+                                <li>Vertragserfüllung (Art. 6 Abs. 1 lit. b) - wenn nötig für Vertragsabwicklung</li>
+                                <li>Berechtigtes Interesse (Art. 6 Abs. 1 lit. f) - mit Interessenabwägung</li>
+                            </ul>
+                        </li>
+                        <li><strong>Du deine Datenschutzerklärung anpasst:</strong> Kunden müssen informiert werden, dass KI-Tools genutzt werden</li>
+                        <li><strong>Noch besser: EU-Hosting nutzen!</strong> Dann bleiben die Daten in der EU</li>
+                    </ol>
+                </div>
+                
+                <h3>Praktische Tipps für kleine Unternehmen</h3>
+                
+                <ul class="action-list">
+                    <li>
+                        <strong>Anonymisieren vor ChatGPT-Nutzung:</strong><br>
+                        Entferne Namen, E-Mail-Adressen, Telefonnummern etc. BEVOR du den Text in ChatGPT kopierst
+                        <div class="example-box" style="margin-top: 10px;">
+                            ❌ "Hallo Herr Müller, Ihre Bestellung #12345 wurde versandt..."<br>
+                            ✅ "Hallo [Kunde], Ihre Bestellung wurde versandt..."
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <strong>Business-Tools mit AVV nutzen:</strong><br>
+                        Wenn möglich, nutze KI-Tools die einen Auftragsverarbeitungsvertrag anbieten:
+                        <ul style="margin-top: 10px; line-height: 1.8;">
+                            <li>Microsoft Copilot (mit Microsoft 365 Business)</li>
+                            <li>Google Workspace AI-Features</li>
+                            <li>Spezialisierte Business-KI-Tools mit DSGVO-Compliance</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Datenschutzerklärung anpassen:</strong><br>
+                        Wenn ihr KI-Tools nutzt, die personenbezogene Daten verarbeiten (z.B. Chatbot auf Website), muss das in eurer Datenschutzerklärung stehen
+                    </li>
+                    
+                    <li>
+                        <strong>Mitarbeiter sensibilisieren:</strong><br>
+                        In der Schulung (Artikel 4 AI Act) auch DSGVO-Aspekte behandeln:<br>
+                        "Welche Daten dürfen in welche Tools?"
+                    </li>
+                </ul>
+                
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h3>🎯 Faustregel für die Praxis:</h3>
+                    <div style="background: #FAF8F6; padding: 20px; border-radius: 5px; margin-top: 15px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background: #E6E0D6; font-weight: bold;">
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Datenart</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">ChatGPT/Claude (kostenlos/Plus)</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Gmail/M365 (Business)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Kundendaten mit Namen/E-Mail</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #ffe6e6;">❌ Nicht erlaubt</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ Mit AVV OK</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Anonymisierte Texte</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ OK</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ OK</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Allgemeine Fragen ohne Personenbezug</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ OK</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ OK</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4;">Interne Unternehmensdaten (ohne Personenbezug)</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #fff3cd;">⚠️ Vorsicht (Geschäftsgeheimnisse!)</td>
+                                <td style="padding: 15px; border: 1px solid #B6ADA4; background: #d4edda;">✅ Besser geschützt</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="article-ref" style="margin-top: 30px;">
+                    <strong>Weitere Infos:</strong><br>
+                    • Datenschutzkonferenz (DSK): Orientierungshilfen zu KI<br>
+                    • Bayerisches Landesamt für Datenschutzaufsicht (BayLDA): Checkliste für KI-Nutzung<br>
+                    • Bundesbeauftragte für Datenschutz (BfDI): Hinweise zu ChatGPT & Co.
+                </div>
+            </div>
+            
+            <!-- Tab 7: Strafen -->
+            <div id="strafen" class="tab-content">
+                <h2>Strafen bei Verstößen (Artikel 99)</h2>
+                
+                <div class="article-ref">
+                    <strong>Artikel 99 – Geldbußen für Anbieter und Betreiber von KI-Systemen</strong><br>
+                    "Die Mitgliedstaaten legen Vorschriften über Geldbußen fest, die bei Verstößen gegen diese Verordnung zu verhängen sind."
+                </div>
+                
+                <div class="penalty-info">
+                    <h3>💰 Bußgeldhöhen</h3>
+                    <p style="margin-bottom: 15px;"><strong>Wichtig:</strong> Es gilt immer der HÖHERE Betrag!</p>
+                    
+                    <div style="background: #FAF8F6; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                        <h4>Verstoß gegen verbotene KI-Praktiken (Artikel 5)</h4>
+                        <div class="article-ref">
+                            <strong>Artikel 99 Absatz 3 lit. a</strong><br>
+                            "Bis zu 35.000.000 EUR oder 7 % des gesamten weltweit erzielten Jahresumsatzes des vorangegangenen Geschäftsjahrs, je nachdem, welcher Betrag höher ist"
+                        </div>
+                    </div>
+                    
+                    <div style="background: #FAF8F6; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                        <h4>Verstoß gegen andere Pflichten (z.B. Artikel 4, 50)</h4>
+                        <div class="article-ref">
+                            <strong>Artikel 99 Absatz 3 lit. b</strong><br>
+                            "Bis zu 15.000.000 EUR oder 3 % des gesamten weltweit erzielten Jahresumsatzes des vorangegangenen Geschäftsjahrs, je nachdem, welcher Betrag höher ist"
+                        </div>
+                    </div>
+                    
+                    <div style="background: #FAF8F6; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                        <h4>Übermittlung unrichtiger Informationen</h4>
+                        <div class="article-ref">
+                            <strong>Artikel 99 Absatz 3 lit. c</strong><br>
+                            "Bis zu 7.500.000 EUR oder 1 % des gesamten weltweit erzielten Jahresumsatzes des vorangegangenen Geschäftsjahrs, je nachdem, welcher Betrag höher ist"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>📊 Die Strafen sind HÖHER als bei der DSGVO!</h3>
+                    <p>Zum Vergleich: DSGVO-Höchststrafen liegen bei 20 Mio. EUR oder 4 % des Jahresumsatzes</p>
+                </div>
+                
+                <h3>Für KMU und Einzelunternehmen wichtig:</h3>
+                <div class="article-ref">
+                    <strong>Artikel 99 Absatz 4</strong><br>
+                    "Bei der Entscheidung über die Höhe der Geldbuße wird unter anderem Folgendes gebührend berücksichtigt:<br>
+                    g) die Größe und der Marktanteil des Unternehmens und insbesondere, wenn es sich um ein KMU, einschließlich Start-up-Unternehmen, handelt"
+                </div>
+                
+                <div class="example-box">
+                    <h4>💡 Was das für kleine Unternehmen bedeutet:</h4>
+                    <ul style="line-height: 1.8; margin-top: 10px;">
+                        <li>Die Strafen können auch kleine Unternehmen hart treffen</li>
+                        <li>Bei der Bemessung wird die Unternehmensgröße berücksichtigt</li>
+                        <li><strong>Wichtig:</strong> Präventiv handeln ist viel günstiger als Strafen!</li>
+                        <li>Dokumentation hilft bei möglichen Prüfungen</li>
+                    </ul>
+                </div>
+                
+                <h3>Zuständige Behörden</h3>
+                <div class="article-ref">
+                    <strong>Artikel 70 – Nationale zuständige Behörden</strong><br>
+                    "Jeder Mitgliedstaat richtet oder benennt als nationale zuständige Behörden mindestens eine notifizierende Behörde und mindestens eine Marktüberwachungsbehörde ein."
+                </div>
+                
+                <p style="margin-top: 20px;">In Deutschland wird voraussichtlich die <strong>Bundesnetzagentur (BNetzA)</strong> die zuständige Aufsichtsbehörde sein.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.getElementsByClassName('tab-content');
+            for (let content of contents) {
+                content.classList.remove('active');
+            }
+            
+            // Remove active class from all tabs
+            const tabs = document.getElementsByClassName('tab');
+            for (let tab of tabs) {
+                tab.classList.remove('active');
+            }
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab (find the tab that matches onclick attribute)
+            for (let tab of tabs) {
+                if (tab.getAttribute('onclick') && tab.getAttribute('onclick').includes(tabName)) {
+                    tab.classList.add('active');
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
